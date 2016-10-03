@@ -21,16 +21,16 @@ public class MainActivity extends AppCompatActivity {
         b=(Button) findViewById(R.id.button1);
 
         b.setOnClickListener(new View.OnClickListener() {
-
             @Override
             public void onClick(View v) {
-                // TODO Auto-generated method stub
                 startAlert();
             }
         });
+    }
 
-    }   public void startAlert() {
+    public void startAlert() {
         EditText text = (EditText) findViewById(R.id.time);
+
         int i = Integer.parseInt(text.getText().toString());
         Intent intent = new Intent(this, MyBroadcastReceiver.class);
         PendingIntent pendingIntent = PendingIntent.getBroadcast(
@@ -40,5 +40,4 @@ public class MainActivity extends AppCompatActivity {
                 + (i * 1000), pendingIntent);
         Toast.makeText(this, "Alarm set in " + i + " seconds",Toast.LENGTH_LONG).show();
     }
-
 }
